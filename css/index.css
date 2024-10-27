@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:500&display=swap');
-@import url("/./NandishMSPortfolio/font-awesome/css/font-awesome.css");
-@import url("/./NandishMSPortfolio/font-awesome/css/font-awesome.min.css");
-@import url("/./NandishMSPortfolio/micons/micons.css");
+@import url("/font-awesome/css/font-awesome.css");
+@import url("/font-awesome/css/font-awesome.min.css");
+@import url("/micons/micons.css");
 @import url("fonts.css");
 
 *{
@@ -766,10 +766,11 @@ body{
 }
 #resume .timeline-header h3 {
 	margin-bottom: 0;
+    font-family: "fontawesome";
     font-size: 20px;
 }
 #resume .timeline-header p {
-	font-family: "poppins-regular", sans-serif;
+	font-family: "poppins-regular";
 	font-size: 15px;
 }
 #resume .timeline-content {
@@ -781,10 +782,12 @@ body{
 #resume .timeline-content p{
     margin-bottom: 30px;
     margin-top: 25px;
+    font-family: sans-serif;
 }
 #resume .timeline-content h4 {
 	position: relative;
     font-size: 20px;
+    font-family: "lora-regular";
 	padding-bottom: 1.8rem;
 }
 #resume .timeline-content h4::after {
