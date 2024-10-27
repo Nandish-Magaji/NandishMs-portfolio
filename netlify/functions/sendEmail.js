@@ -11,13 +11,14 @@ exports.handler = async function(event, context) {
         };
     }
 
-    emailjs.init(process.env.EMAILJS_USER_ID);  // Initialize with the secret ID
+    // emailjs.init(process.env.EMAILJS_USER_ID);  // Initialize with the secret ID
 
     try {
         const response = await emailjs.send(
-            YOUR_SERVICE_ID, 
-            YOUR_TEMPLATE_ID, 
-            { name, email, subject, message }
+            'service_3gz288f', 
+            'template_zyy5mrf', 
+            { name, email, subject, message },
+            'VfpfcnjVilQZDTv0N'
         );
 
         return {
@@ -28,7 +29,7 @@ exports.handler = async function(event, context) {
         console.error("Error sending email:", error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ success: false, error: 'An error occurred while sending the email.' })
+            body: JSON.stringify({ success: false, error: 'An error occurred while sending the email.', details: error.message })
         };
     }
 };
