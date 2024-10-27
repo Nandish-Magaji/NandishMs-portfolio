@@ -25,7 +25,7 @@ async function validateForm(event) {
         if (result.success) {
             alert("Email Sent Successfully!");
         } else {
-            alert("Failed to send email.");
+            alert("Failed to send email:"+ result.error);
         }
     } catch (error) {
         console.error("Error:", error);
