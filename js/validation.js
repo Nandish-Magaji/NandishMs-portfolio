@@ -1,15 +1,3 @@
-// function validateForm() {
-//     let name = document.getElementById("name").value;
-//     let email = document.getElementById("email").value;
-//     let message = document.getElementById("message").value;
-
-//     if (name === "" || email === "" || message === "") {
-//         alert("All Fields must be filled out!");
-//         return false;
-//     }
-//     return true;
-// }
-
 async function validateForm(event) {
     event.preventDefault();
 
@@ -25,7 +13,7 @@ async function validateForm(event) {
 
     // Call the Netlify Function
     try {
-        const response = await fetch('/.netlify/functions/sendEmail', {
+        const response = await fetch('.sendEmail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

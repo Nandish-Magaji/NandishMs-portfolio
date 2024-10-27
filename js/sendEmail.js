@@ -1,4 +1,4 @@
-// netlify/functions/sendEmail.js
+// js/sendEmail.js
 const emailjs = require('emailjs-com');
 
 exports.handler = async function(event, context) {
