@@ -10,34 +10,7 @@ async function validateForm(event) {
         alert("All fields must be filled out!");
         return false;
     }
-
-    // Call the Netlify Function
-    try {
-        const response = await fetch('/.netlify/functions/sendEmail', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name, email, subject, message })
-        });
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        if (result.success) {
-            alert("Email Sent Successfully! I will get back to you sooner, Thanks!");
-            return true;
-        } else {
-            alert("Oops Failed to Send Email:"+ result.error);
-            return false;
-        }
-    } catch (error) {
-        console.error("Error:", error);
-        alert("An error occurred while sending the email.");
-        return false;
-    }
-
-    return true;
+    else
+        alert("Currently This project is hosted on GitHub, so the integration with EmailJS isn't possible. As all private, session key's & other credentials will be public. Instead Email me or drop a message via attached social links. Thanks!");
+        return true;
 }
-
