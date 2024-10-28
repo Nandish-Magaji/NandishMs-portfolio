@@ -22,12 +22,6 @@ exports.handler = async (event) => {
             };
         }
 
-        console.log("User ID:", process.env.EMAILJS_USER_ID);
-        console.log("Template ID:", process.env.EMAILJS_TEMPLATE_TOKEN);
-        console.log("SERVICE ID:", process.env.EMAILJS_SERVICE_TOKEN);
-        console.log("accessToken:", process.env.EMAILJS_ACCESS_TOKEN);
-        console.log("Template Params:", { name, email, subject, message });
-
         // Define EmailJS API URL
         const emailJsApiUrl = `https://api.emailjs.com/api/v1.0/email/send`;
 
