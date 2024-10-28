@@ -1,4 +1,0 @@
-.netlify
-.env
-netlify.toml
-netlify/functions/sendEmail.js
