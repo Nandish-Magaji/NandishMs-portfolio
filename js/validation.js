@@ -26,10 +26,10 @@ async function validateForm(event) {
 
         const result = await response.json();
         if (result.success) {
-            alert("Email Sent Successfully!");
+            alert("Email Sent Successfully! I will get back to you sooner, Thanks!");
             return true;
         } else {
-            alert("Failed to send email:"+ result.error);
+            alert("Oops Failed to Send Email:"+ result.error);
             return false;
         }
     } catch (error) {

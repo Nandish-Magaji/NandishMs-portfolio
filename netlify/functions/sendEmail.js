@@ -23,6 +23,8 @@ exports.handler = async (event) => {
         }
 
         console.log("User ID:", process.env.EMAILJS_USER_ID);
+        console.log("Template ID:", process.env.EMAILJS_TEMPLATE_TOKEN);
+        console.log("SERVICE ID:", process.env.EMAILJS_SERVICE_TOKEN);
         console.log("accessToken:", process.env.EMAILJS_ACCESS_TOKEN);
         console.log("Template Params:", { name, email, subject, message });
 
@@ -36,8 +38,8 @@ exports.handler = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                service_id: 'service_xm6a5er',
-                template_id: 'template_zyy5mrf',
+                service_id: process.env.EMAILJS_SERVICE_TOKEN,
+                template_id: process.env.EMAILJS_TEMPLATE_TOKEN,
                 user_id: process.env.EMAILJS_USER_ID,
                 accessToken: process.env.EMAILJS_ACCESS_TOKEN,
                 template_params: { 
@@ -55,14 +57,14 @@ exports.handler = async (event) => {
             console.error("EmailJS Error:", errorText);
             return {
                 statusCode: 500,
-                body: JSON.stringify({ success: false, message: 'Failed to send email.', error: errorText })
+                body: JSON.stringify({ success: false, message: 'Oops Failed to Send Email.', error: errorText })
             };
         }
 
         // Return success response
         return {
             statusCode: 200,
-            body: JSON.stringify({ success: true, message: 'Email Sent Successfully!' }),
+            body: JSON.stringify({ success: true, message: 'Email Sent Successfully! I will get back to you sooner, Thanks!' }),
         };
 
     } catch (error) {
