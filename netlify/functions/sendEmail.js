@@ -1,15 +1,16 @@
-const fetch = require('node-fetch');
-
 exports.handler = async (event) => {
-    // Allow only POST requests
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            body: JSON.stringify({ success: false, message: 'Method Not Allowed' }),
-        };
-    }
-
     try {
+        // Dynamically import node-fetch
+        const fetch = (await import('node-fetch')).default;
+
+        // Allow only POST requests
+        if (event.httpMethod !== 'POST') {
+            return {
+                statusCode: 405,
+                body: JSON.stringify({ success: false, message: 'Method Not Allowed' }),
+            };
+        }
+
         const data = JSON.parse(event.body);
         const { name, email, subject, message } = data;
 
@@ -33,8 +34,9 @@ exports.handler = async (event) => {
             body: JSON.stringify({
                 service_id: 'service_3gz288f',
                 template_id: 'template_zyy5mrf',
-                user_id: 'VfpfcnjVilQZDTv0N', // Your public key
+                user_id: process.env.EMAILJS_USER_ID,
                 template_params: { name, email, subject, message }
+            
             })
         });
 
