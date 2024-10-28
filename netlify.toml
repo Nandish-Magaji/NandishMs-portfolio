@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+
+[env]
+  EMAILJS_USER_ID = "41-7Oca3QhFUFlQpB"
+  EMAILJS_ACCESS_TOKEN = "p0FkQTv3aAVdjCDiTTKKU"

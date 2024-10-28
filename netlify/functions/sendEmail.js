@@ -22,6 +22,10 @@ exports.handler = async (event) => {
             };
         }
 
+        console.log("User ID:", process.env.EMAILJS_USER_ID);
+        console.log("accessToken:", process.env.EMAILJS_ACCESS_TOKEN);
+        console.log("Template Params:", { name, email, subject, message });
+
         // Define EmailJS API URL
         const emailJsApiUrl = `https://api.emailjs.com/api/v1.0/email/send`;
 
@@ -32,11 +36,16 @@ exports.handler = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                service_id: 'service_3gz288f',
+                service_id: 'service_xm6a5er',
                 template_id: 'template_zyy5mrf',
                 user_id: process.env.EMAILJS_USER_ID,
-                template_params: { name, email, subject, message }
-            
+                accessToken: process.env.EMAILJS_ACCESS_TOKEN,
+                template_params: { 
+                    name,
+                    email,
+                    subject,
+                    message
+                }  
             })
         });
 
