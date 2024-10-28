@@ -1,6 +1,14 @@
 const emailjs = require('emailjs-com');
 
 exports.handler = async (event) => {
+    
+    if (event.httpMethod !== 'POST') {
+        return {
+            statusCode: 405,
+            body: JSON.stringify({ success: false, message: 'Method Not Allowed' }),
+        };
+    }
+
     try {
         // Parse the incoming request body to JSON
         const data = JSON.parse(event.body);

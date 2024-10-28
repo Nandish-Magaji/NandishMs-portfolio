@@ -20,16 +20,22 @@ async function validateForm(event) {
             },
             body: JSON.stringify({ name, email, subject, message })
         });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
         const result = await response.json();
         if (result.success) {
             alert("Email Sent Successfully!");
+            return true;
         } else {
             alert("Failed to send email:"+ result.error);
+            return false;
         }
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred while sending the email.");
+        return false;
     }
 
     return true;
